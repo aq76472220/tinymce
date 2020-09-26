@@ -41,6 +41,7 @@ export interface ImageDialogInfo {
   basePath: string;
   credentials: boolean;
   handler: UploadHandler;
+  setHandler: any;
   automaticUploads: boolean;
   prependURL: Option<string>;
 }

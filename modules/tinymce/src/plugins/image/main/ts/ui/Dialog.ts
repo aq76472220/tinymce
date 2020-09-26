@@ -6,7 +6,7 @@
  */
 
 import { Types } from '@ephox/bridge';
-import { File, URL } from '@ephox/dom-globals';
+import {console, File, URL} from '@ephox/dom-globals';
 import { Arr, Merger, Option, Type } from '@ephox/katamari';
 
 import Editor from 'tinymce/core/api/Editor';
@@ -427,9 +427,17 @@ export const Dialog = (editor: Editor) => {
     parseStyle: parseStyle(editor),
     serializeStyle: serializeStyle(editor)
   };
-  const open = () => collect(editor).then(makeDialog(helpers)).then((spec) => editor.windowManager.open(spec));
+  // const open = () => collect(editor).then(makeDialog(helpers)).then((spec) => editor.windowManager.open(spec));
   const openLater = () => {
-    open();
+
+
+    collect(editor).then((makeDialog(helpers))).then((spec)=>{
+      console.log(helpers, 1111111111111)
+      editor.windowManager.open(spec)
+    })
+
+
+    // open();
   };
   return {
     open,

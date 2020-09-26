@@ -46,9 +46,11 @@ const collect = (editor: Editor): Promise<ImageDialogInfo> => {
   const basePath = Settings.getUploadBasePath(editor);
   const credentials = Settings.getUploadCredentials(editor);
   const handler = Settings.getUploadHandler(editor);
+  const setHandler = Settings.setUploadHandler(editor);
   const automaticUploads = Settings.isAutomaticUploadsEnabled(editor);
   const prependURL: Option<string> = Option.some(Settings.getPrependUrl(editor)).filter(
     (preUrl) => Type.isString(preUrl) && preUrl.length > 0);
+
 
   return futureImageList.then((imageList): ImageDialogInfo => ({
     image,
@@ -66,9 +68,11 @@ const collect = (editor: Editor): Promise<ImageDialogInfo> => {
     basePath,
     credentials,
     handler,
+    setHandler,
     prependURL,
     hasAccessibilityOptions,
-    automaticUploads
+    automaticUploads,
+
   }));
 };
 

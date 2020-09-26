@@ -1,5 +1,5 @@
 import { console } from '@ephox/dom-globals';
-import Delay from 'tinymce/core/api/util/Delay';
+// import Delay from 'tinymce/core/api/util/Delay';
 
 declare let tinymce: any;
 
@@ -20,14 +20,15 @@ tinymce.init({
   ],
   images_upload_url: 'postAcceptor.php',
   file_picker_callback(callback, _value, _meta) {
-    callback('https://www.google.com/logos/google.jpg', { alt: 'My alt text', caption: true });
+    console.log(222222222, _value, _meta);
+    callback('https://www.google.com/logos/google.jpg', { alt: 'My alt text', caption: false });
   },
   images_upload_handler: (blobInfo, success, _failure, _progress) => {
-    // tslint:disable-next-line:no-console
-    console.log(blobInfo);
-    Delay.setTimeout(function () {
-      success('https://www.google.com/logos/google.jpg');
-    }, 5000);
+    console.log(33333333);
+    success('https://www.google.com/logos/google.jpg');
+    // Delay.setTimeout(function () {
+    //   success('https://www.google.com/logos/google.jpg');
+    // }, 1000);
   },
   height: 600
 });

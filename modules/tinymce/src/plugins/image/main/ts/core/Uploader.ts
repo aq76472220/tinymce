@@ -5,7 +5,7 @@
  * For commercial licenses see https://www.tiny.cloud/
  */
 
-import { FormData, XMLHttpRequest } from '@ephox/dom-globals';
+import {console, FormData, XMLHttpRequest} from '@ephox/dom-globals';
 import { Fun } from '@ephox/katamari';
 import { BlobInfo } from 'tinymce/core/api/file/BlobCache';
 import Promise from 'tinymce/core/api/util/Promise';
@@ -76,6 +76,7 @@ export default (settings: UploaderSettings) => {
 
   const uploadBlob = (blobInfo: BlobInfo, handler: UploadHandler) => new Promise<string>((resolve, reject) => {
     try {
+      console.log('这里有点像什么')
       handler(blobInfo, resolve, reject, Fun.noop);
     } catch (ex) {
       reject(ex.message);

@@ -41,6 +41,8 @@ const showAccessibilityOptions = (editor: Editor) => editor.getParam('a11y_advan
 
 const isAutomaticUploadsEnabled = (editor: Editor): boolean => editor.getParam('automatic_uploads', true, 'boolean');
 
+const setUploadHandler = (editor: Editor): boolean => editor.getParam('set_upload_handler', undefined, 'function'); // 新定义的图片上传
+
 export {
   hasDimensions,
   hasUploadTab,
@@ -58,5 +60,6 @@ export {
   getUploadBasePath,
   getUploadCredentials,
   showAccessibilityOptions,
-  isAutomaticUploadsEnabled
+  isAutomaticUploadsEnabled,
+  setUploadHandler
 };
